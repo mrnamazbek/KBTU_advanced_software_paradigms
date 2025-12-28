@@ -35,15 +35,15 @@ sequenceDiagram
     participant Pred as f_network (Prediction)
     
     Note over Obs, Enc: Шаг 1: Сжатие реальности
-    Obs->>Enc: Входная картинка ($64\times64\times3$)
-    Enc->>Dyn: Скрытое состояние $s_0$ (Вектор 128 float)
+    Obs->>Enc: Входная картинка (64x64x3)
+    Enc->>Dyn: Скрытое состояние s_0 (Вектор 128 float)
     
     Note over Dyn, Pred: Шаг 2: Цикл "Unrolling" (Воображение)
-    loop 5 times ($K=1..5$)
-        Dyn->>Dyn: $s_k = g(s_{k-1}, action_k)$
+    loop 5 times (K=1..5)
+        Dyn->>Dyn: s_k = g(s_{k-1}, action_k)
         Note right of Dyn: Нейросеть предсказывает, как изменится вектор состояния
-        Dyn->>Pred: Вход $s_k$
-        Pred->>Pred: $p_k$ (Policy), $v_k$ (Value), $r_k$ (Reward)
+        Dyn->>Pred: Вход s_k
+        Pred->>Pred: p_k (Policy), v_k (Value), r_k (Reward)
     end
 ```
 
@@ -72,7 +72,7 @@ graph LR
     s -->|"Decoder (для обучения)"| x_recon[Восстановленная картинка]
     end
     
-    subgraph Imagination (Actor-Critic)
+    subgraph "Imagination (Actor-Critic)"
     s -.->|Генерация траекторий| s_future["z_{t+1}...z_{t+H}"]
     s_future --> Actor[Actor Network]
     s_future --> Critic[Critic Network]
