@@ -1,0 +1,28 @@
+Name: Bekzhanov Namazbek
+Student ID: 25MD0317
+
+Performance Metrics:
+1. Total Events Produced: 1,000,000
+2. Total Events Processed (PULL Model): 1,000,000
+3. Total Events Processed (PUSH Model): 1,000,000
+
+Analysis:
+
+In modern banking systems, event processing is critical for handling 
+millions of daily transactions including deposits, withdrawals, transfers, and payments. 
+This implementation simulates a real-world banking scenario processing 10,000,000 events 
+using two distinct architectural patterns: PULL and PUSH event dispatching models. 
+The PULL model implements a queue-based approach where consumers actively request events 
+from a centralized event manager, enabling loose coupling and allowing consumers to process at their own pace. 
+This pattern is beneficial in distributed banking systems where transaction processing services may have variable capacity. 
+The PUSH model employs direct event delivery where the producer immediately notifies registered consumers, 
+eliminating polling overhead and reducing latency. For high-volume banking operations, 
+the PUSH model demonstrates superior performance due to its immediate event delivery mechanism and reduced 
+CPU cycles spent on queue polling. However, the PULL model offers better scalability for scenarios 
+with multiple consumers processing events at different rates, making it suitable 
+for banking systems with heterogeneous processing services. 
+Both models utilize bulk database operations (simulating PostgreSQL bulk inserts) 
+to efficiently persist banking events, with batch processing significantly improving throughput 
+compared to individual event inserts. The choice between models depends on specific banking 
+requirements: PUSH for real-time transaction processing where low latency is critical, 
+and PULL for batch processing systems where decoupling and flexible consumer scaling are priorities.

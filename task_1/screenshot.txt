@@ -1,0 +1,61 @@
+TERMINAL OUTPUT - Configurable Microservice Simulator
+============================================================
+Student: Bekzhanov Namazbek (25MD0317)
+Module: Advanced Software Paradigms
+============================================================
+
+$ python3 main.py
+
+============================================================
+  Configurable Microservice Simulator
+  Industrial Monitoring System
+============================================================
+
+Configuration loaded: 2 service(s) active
+Active services: DataCollector, Analyzer
+
+------------------------------------------------------------
+Starting services...
+------------------------------------------------------------
+
+[DataCollector] Starting data collection...
+[DataCollector] Collected readings: [25.2, 25.8, 22.6, 24.5, 22.0]
+
+[Analyzer] Starting data analysis...
+[Analyzer] Average temperature: 23.78°C
+[Analyzer] ✓ All readings within normal range
+
+------------------------------------------------------------
+All configured services completed execution.
+============================================================
+
+--- Additional Test: Running with AlertService ---
+
+$ python3 main.py
+(config.json modified to include AlertService)
+
+============================================================
+  Configurable Microservice Simulator
+  Industrial Monitoring System
+============================================================
+
+Configuration loaded: 3 service(s) active
+Active services: DataCollector, Analyzer, AlertService
+
+------------------------------------------------------------
+Starting services...
+------------------------------------------------------------
+
+[DataCollector] Starting data collection...
+[DataCollector] Collected readings: [23.1, 24.3, 25.7, 22.4, 24.9]
+
+[Analyzer] Starting data analysis...
+[Analyzer] Average temperature: 24.08°C
+[Analyzer] ✓ All readings within normal range
+
+[AlertService] Checking system status...
+[AlertService] System running normally.
+
+------------------------------------------------------------
+All configured services completed execution.
+============================================================
