@@ -63,19 +63,19 @@ MuZero *не пытается* представить картинку буду�
 
 ```mermaid
 graph LR
-    subgraph "World Model (Тренажер)"
+    subgraph WM ["World Model (Тренажер)"]
     h["Память (RNN)"] -->|Помню прошлое| s["Ситуация (State)"]
     x["Реальность (Obs)"] -->|Вижу сейчас| s
     end
     
-    subgraph "Imagination (Обучение)"
+    subgraph IM ["Imagination (Обучение)"]
     s -.->|Мечтаем| s_future["Воображаемое будущее..."]
     s_future --> Actor["Пилот (Actor)"]
     s_future --> Critic["Тренер (Critic)"]
     end
     
-    style "World Model (Тренажер)" fill:#1f2937,stroke:#3b82f6,stroke-width:2px
-    style "Imagination (Обучение)" fill:#1f2937,stroke:#10b981,stroke-width:2px
+    style WM fill:#1f2937,stroke:#3b82f6,stroke-width:2px
+    style IM fill:#1f2937,stroke:#10b981,stroke-width:2px
 ```
 
 **Простыми словами:**
